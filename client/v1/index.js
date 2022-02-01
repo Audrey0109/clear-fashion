@@ -362,8 +362,8 @@ console.log('\njacketfavorite : ',jacket);
 
 // 🎯 TODO: Save in localStorage
 // 1. Save MY_FAVORITE_BRANDS in the localStorage
-// 2. log the localStorage
-
+console.log('Save in local storage');
+//function setItem pour stocker dans le local storage
 window.localStorage.setItem("MY_FAVORITE_BRANDS",JSON.stringify(MY_FAVORITE_BRANDS));
-log(window.localStorage.getItem('MY_FAVORITE_BRANDS'));
-
+// 2. log the localStorage
+console.log(window.localStorage.getItem("MY_FAVORITE_BRANDS"));
