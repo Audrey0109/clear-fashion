@@ -105,25 +105,6 @@ const renderIndicators= pagination => {
   spanNbProducts.innerHTML=count;
 }
 
-/**
- * Render brand selector
- * @param  {Object} brand
- */
- const renderBrands = products => {
-  const brand=[];
-  const options= products.map(obj => {
-    if (!brand.includes(obj.brand)){
-      brand.push(obj.brand);
-      return '<option value="${obj.brand}"${currentBrand===obj.brand ? "selected": ""}>${obj.brand}</option>'
-    }
-  });
-  options.unshift('<option value="">All brands</option>')
-
-  selectBrand.innerHTML = options.join('');
-  if(currentBrand===""){
-    selectBrand.selectedIndex = 0;
-  }
-};
 
 //new products
 const renderNewProducts = products => {
@@ -194,10 +175,11 @@ const render = (products, pagination) => {
  * @type {[type]}
  */
 selectShow.addEventListener('change', event => {
-  fetchProducts(currentPagination.currentPage, parseInt(event.target.value))
+  fetchProducts(currentPagination.currentPage, parseInt(event.target.value),selectBrand.value)
     .then(setCurrentProducts)
     .then(() => render(currentProducts, currentPagination));
 });
+
 
 document.addEventListener('DOMContentLoaded', () =>
   fetchProducts()
@@ -211,20 +193,11 @@ document.addEventListener('DOMContentLoaded', () =>
  * @type {[type]}
  */
  selectPage.addEventListener('change', event => {
-  currentPagination.currentPage=parseInt(event.target.value);
-  refresh
-});
-
-
-/**
- * Select the pages to display
- * @type {[type]}
- */
- selectPage.addEventListener('change', event => {
-  fetchProducts()
+  fetchProducts(parseInt(event.target.value),currentPagination.currentShow,selectShow.value,selectBrand.value)
     .then(setCurrentProducts)
     .then(()=> render(currentProducts,currentPagination))
 });
+
 
 /**
  * Sort the of products to display 
@@ -274,11 +247,10 @@ document.addEventListener('DOMContentLoaded', () =>
     temp=SortDateDesc(currentProducts);
   }
   console.log(temp);
-  fetchProducts(currentPagination.currentPage,currentPagination.size)
+  fetchProducts(currentPagination.currentPage,currentPagination.size,selectShow.value, selectBrand.value)
     .then(setCurrentProducts)
     .then(()=> render(temp, currentPagination));
 });
-
 
 /**
  * Select the products released recently (less than 2 weeks)
