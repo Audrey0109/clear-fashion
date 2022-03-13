@@ -16,8 +16,13 @@ const sectionProducts = document.querySelector('#products');
 //Filters
 const selectFilterRecentProducts = document.querySelector('#filter-date-select')
 const selectFilterReasonablePrice = document.querySelector('#filter-price-select')
+<<<<<<< HEAD
 const selectFilterPriceBetween50_100 = ('#filter-price-between-50-and-100-select')
 const selectFilterPriceAbove100 = ('#filter-price-above-100-select')
+=======
+const selectFilterPriceBetween50_100 = document.querySelector('#filter-price-between-50-and-100-select')
+const selectFilterPriceAbove100 = document.querySelector('#filter-price-above-100-select')
+>>>>>>> 29335269b7af42d9ec77775c7ab93cdc47c8f225
 const selectBrand = document.querySelector('#brand-select');
 
 //Sort
@@ -332,8 +337,12 @@ function FilterByBrand(currentProducts, brandName)
         {
             filteredProducts.push(product)
         }
+<<<<<<< HEAD
     }
     
+=======
+    } 
+>>>>>>> 29335269b7af42d9ec77775c7ab93cdc47c8f225
     return filteredProducts
 }
 
@@ -365,7 +374,10 @@ function FilterByReleasedDate(currentProducts, selector) {
             }
         }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 29335269b7af42d9ec77775c7ab93cdc47c8f225
     return filtered_products
 }
 
@@ -393,19 +405,30 @@ function FilterByReasonablePrice(currentProducts, instruction) {
     {
         for (var product of currentProducts) 
         {
+<<<<<<< HEAD
             console.log(product.price);
+=======
+            //console.log(product.price);
+>>>>>>> 29335269b7af42d9ec77775c7ab93cdc47c8f225
             if (product.price <= 50) 
             {
                 filteredProducts.push(product)
             }
         }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 29335269b7af42d9ec77775c7ab93cdc47c8f225
     return filteredProducts
 }
 
 
+<<<<<<< HEAD
 /*
+=======
+
+>>>>>>> 29335269b7af42d9ec77775c7ab93cdc47c8f225
 // Filter by prices between 50€ and 100€
 selectFilterPriceBetween50_100.addEventListener('change', event => {
     fetchProducts(currentPagination.currentPage, currentPagination.pageSize)
@@ -413,6 +436,7 @@ selectFilterPriceBetween50_100.addEventListener('change', event => {
         .then(() => render(FilterByPriceBetween50_100(currentProducts, event.target.value), currentPagination));
   })
   
+<<<<<<< HEAD
   function FilterByPriceBetween50_100(currentProducts, instruction) 
   {
     var filtered_products = []
@@ -436,6 +460,29 @@ selectFilterPriceBetween50_100.addEventListener('change', event => {
   }
 
   
+=======
+function FilterByPriceBetween50_100(currentProducts, instruction) 
+{
+    var filtered_products = []
+    if (instruction == "no_filter") 
+    {
+        filtered_products = [...currentProducts]
+    }
+    else 
+    {
+        for (var product of currentProducts) 
+        {
+            //console.log(product.price);
+            if ((product.price > 50) && (product.price <= 100)) 
+            {
+                filtered_products.push(product)
+            }
+        }
+    }
+return filtered_products
+}
+ 
+>>>>>>> 29335269b7af42d9ec77775c7ab93cdc47c8f225
   
   // Filter by prices above 100€
   selectFilterPriceAbove100.addEventListener('change', event => {
@@ -462,10 +509,15 @@ selectFilterPriceBetween50_100.addEventListener('change', event => {
         }
       }
     }
+<<<<<<< HEAD
   
     return filtered_products
   }
 */
+=======
+    return filtered_products
+  }
+>>>>>>> 29335269b7af42d9ec77775c7ab93cdc47c8f225
 
 
 
@@ -532,7 +584,10 @@ Feature 12 - Open product link
 As a user
 I want to open product link in a new page
 So that I can buy the product easily
+<<<<<<< HEAD
 
+=======
+>>>>>>> 29335269b7af42d9ec77775c7ab93cdc47c8f225
 -> On peut cliquer sur le lien dans le tableau pour ouvrir la page du produit
 */
 
@@ -589,13 +644,19 @@ function FilterByFavorite(currentProducts, instruction)
             }
         }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 29335269b7af42d9ec77775c7ab93cdc47c8f225
     return filteredProducts
 }
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 29335269b7af42d9ec77775c7ab93cdc47c8f225
 /**
  * Select the number of products to display
  */
@@ -625,6 +686,7 @@ const refresh = () => {
 // Supprimer toutes les options sélectionnées
 function ResetOptions()
 {
+<<<<<<< HEAD
     /*
     selectFilterRecentProducts.innerHTML = "No";
     selectFilterReasonablePrice.innerHTML = "No";
@@ -637,4 +699,13 @@ function ResetOptions()
 
     refresh();
     */
+=======
+    selectFilterRecentProducts.value = "no_filter";
+    selectFilterReasonablePrice.value = "no_filter";
+    selectFilterPriceBetween50_100.value = "no_filter";
+    selectFilterPriceAbove100.value = "no_filter";
+    selectBrand.value = "All";
+    selectSort.value = "no_sort";  
+    selectFilterFavorite.value = "no_filter";
+>>>>>>> 29335269b7af42d9ec77775c7ab93cdc47c8f225
 }
