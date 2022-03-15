@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-const dedicatedbrand = require('dedicatedbrand');
-
-const products = dedicatedbrand.scrape('https://www.dedicatedbrand.com/en/men/news');
-
-products.forEach(product => {
-    console.log(products.name);
-})
-=======
 //const brands3_products= require('brands.json');
 const dedicatedbrand= require('dedicatedbrand.js');
 const products = dedicatedbrand.scrape('https://www.dedicatedbrand.com/en/men/news');
@@ -68,9 +59,4 @@ module.exports.scrape = async url => {
   }
 };
 
-/**
- * Scrape Products for the 3 Brands defined by the json file ../server/brands.json
- * 
- */
 
->>>>>>> 29335269b7af42d9ec77775c7ab93cdc47c8f225

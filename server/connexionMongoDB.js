@@ -1,5 +1,6 @@
 const {MongoClient} = require('mongodb');
 const MONGODB_DB_NAME = 'clearfashion';
+const MONGODB_COLLECTION = 'products';
 const MONGODB_URI = "mongodb+srv://user:user@clearfashion.biwwt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 
