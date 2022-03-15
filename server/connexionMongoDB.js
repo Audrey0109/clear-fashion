@@ -1,13 +1,14 @@
 const {MongoClient} = require('mongodb');
-const MONGODB_DB_NAME = 'AudreyCHMIEL';
-const MONGODB_URI = "mongodb+srv://user:web_clear_fashion@clearfashion.biwwt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const MONGODB_DB_NAME = 'clearfashion';
+const MONGODB_URI = "mongodb+srv://user:user@clearfashion.biwwt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+
 
 async function connect() {
     try 
     {
         const client = await MongoClient.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
         const db = client.db(MONGODB_DB_NAME)
-        console.log('Connected to database')
+        //console.log('Connected to database')
         return db
     }
 
@@ -74,7 +75,8 @@ async function Find_by_price_less_than(price)
         console.log(result);
     });
 }
-//Find_by_price_less_than(price)
+
+Find_by_price_less_than(price)
 
 
 
